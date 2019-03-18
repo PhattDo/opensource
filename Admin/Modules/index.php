@@ -2,7 +2,7 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
+            <a href="../../index.php">Trang Chủ</a>
         </li>
         <li class="breadcrumb-item active">Trang Chủ Admin</li>
     </ol>
