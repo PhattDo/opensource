@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 18, 2019 at 11:51 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th3 18, 2019 lúc 06:33 PM
+-- Phiên bản máy phục vụ: 10.1.37-MariaDB
+-- Phiên bản PHP: 7.0.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shopvera`
+-- Cơ sở dữ liệu: `verashop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Cấu trúc bảng cho bảng `menu`
 --
 
 CREATE TABLE `menu` (
@@ -41,7 +41,7 @@ CREATE TABLE `menu` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menugroup`
+-- Cấu trúc bảng cho bảng `menugroup`
 --
 
 CREATE TABLE `menugroup` (
@@ -52,7 +52,7 @@ CREATE TABLE `menugroup` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderdetails`
+-- Cấu trúc bảng cho bảng `orderdetails`
 --
 
 CREATE TABLE `orderdetails` (
@@ -65,7 +65,7 @@ CREATE TABLE `orderdetails` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 CREATE TABLE `orders` (
@@ -86,7 +86,7 @@ CREATE TABLE `orders` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Cấu trúc bảng cho bảng `pages`
 --
 
 CREATE TABLE `pages` (
@@ -106,7 +106,7 @@ CREATE TABLE `pages` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post`
+-- Cấu trúc bảng cho bảng `post`
 --
 
 CREATE TABLE `post` (
@@ -132,7 +132,7 @@ CREATE TABLE `post` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `postcategories`
+-- Cấu trúc bảng cho bảng `postcategories`
 --
 
 CREATE TABLE `postcategories` (
@@ -156,7 +156,7 @@ CREATE TABLE `postcategories` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posttags`
+-- Cấu trúc bảng cho bảng `posttags`
 --
 
 CREATE TABLE `posttags` (
@@ -167,7 +167,7 @@ CREATE TABLE `posttags` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productcategories`
+-- Cấu trúc bảng cho bảng `productcategories`
 --
 
 CREATE TABLE `productcategories` (
@@ -188,10 +188,22 @@ CREATE TABLE `productcategories` (
   `Alias` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Đang đổ dữ liệu cho bảng `productcategories`
+--
+
+INSERT INTO `productcategories` (`ID`, `Name`, `Description`, `ParentID`, `DisplayOrder`, `HomeFlag`, `CreatedDate`, `CreatedBy`, `UpdateDate`, `UpdatedBy`, `MetaKeyWord`, `MetaDescription`, `Status`, `Image`, `Alias`) VALUES
+(1, 'Dell', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
+(2, 'HP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
+(3, 'Samsung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
+(4, 'Iphone', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
+(5, 'Xiaomi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
+(6, 'Oppo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Cấu trúc bảng cho bảng `products`
 --
 
 CREATE TABLE `products` (
@@ -224,7 +236,7 @@ CREATE TABLE `products` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producttags`
+-- Cấu trúc bảng cho bảng `producttags`
 --
 
 CREATE TABLE `producttags` (
@@ -235,7 +247,7 @@ CREATE TABLE `producttags` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tag`
+-- Cấu trúc bảng cho bảng `tag`
 --
 
 CREATE TABLE `tag` (
@@ -245,177 +257,177 @@ CREATE TABLE `tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `menu`
+-- Chỉ mục cho bảng `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `GroupID` (`GroupID`);
 
 --
--- Indexes for table `menugroup`
+-- Chỉ mục cho bảng `menugroup`
 --
 ALTER TABLE `menugroup`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `orderdetails`
+-- Chỉ mục cho bảng `orderdetails`
 --
 ALTER TABLE `orderdetails`
   ADD PRIMARY KEY (`OrderID`,`ProductID`),
   ADD KEY `ProductID` (`ProductID`);
 
 --
--- Indexes for table `orders`
+-- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `pages`
+-- Chỉ mục cho bảng `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `post`
+-- Chỉ mục cho bảng `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `CategoryID` (`CategoryID`);
 
 --
--- Indexes for table `postcategories`
+-- Chỉ mục cho bảng `postcategories`
 --
 ALTER TABLE `postcategories`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `posttags`
+-- Chỉ mục cho bảng `posttags`
 --
 ALTER TABLE `posttags`
   ADD PRIMARY KEY (`PostID`,`TagID`),
   ADD KEY `TagID` (`TagID`);
 
 --
--- Indexes for table `productcategories`
+-- Chỉ mục cho bảng `productcategories`
 --
 ALTER TABLE `productcategories`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `products`
+-- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `CategoryID` (`CategoryID`);
 
 --
--- Indexes for table `producttags`
+-- Chỉ mục cho bảng `producttags`
 --
 ALTER TABLE `producttags`
   ADD PRIMARY KEY (`ProductID`,`TagID`),
   ADD KEY `TagID` (`TagID`);
 
 --
--- Indexes for table `tag`
+-- Chỉ mục cho bảng `tag`
 --
 ALTER TABLE `tag`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `menu`
+-- AUTO_INCREMENT cho bảng `menu`
 --
 ALTER TABLE `menu`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `menugroup`
+-- AUTO_INCREMENT cho bảng `menugroup`
 --
 ALTER TABLE `menugroup`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pages`
+-- AUTO_INCREMENT cho bảng `pages`
 --
 ALTER TABLE `pages`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `post`
+-- AUTO_INCREMENT cho bảng `post`
 --
 ALTER TABLE `post`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `postcategories`
+-- AUTO_INCREMENT cho bảng `postcategories`
 --
 ALTER TABLE `postcategories`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `productcategories`
+-- AUTO_INCREMENT cho bảng `productcategories`
 --
 ALTER TABLE `productcategories`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `menu`
+-- Các ràng buộc cho bảng `menu`
 --
 ALTER TABLE `menu`
   ADD CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`GroupID`) REFERENCES `menugroup` (`ID`);
 
 --
--- Constraints for table `orderdetails`
+-- Các ràng buộc cho bảng `orderdetails`
 --
 ALTER TABLE `orderdetails`
   ADD CONSTRAINT `orderdetails_ibfk_1` FOREIGN KEY (`ProductID`) REFERENCES `products` (`ID`),
   ADD CONSTRAINT `orderdetails_ibfk_2` FOREIGN KEY (`OrderID`) REFERENCES `orders` (`ID`);
 
 --
--- Constraints for table `post`
+-- Các ràng buộc cho bảng `post`
 --
 ALTER TABLE `post`
   ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `postcategories` (`ID`);
 
 --
--- Constraints for table `posttags`
+-- Các ràng buộc cho bảng `posttags`
 --
 ALTER TABLE `posttags`
   ADD CONSTRAINT `posttags_ibfk_1` FOREIGN KEY (`PostID`) REFERENCES `post` (`ID`),
   ADD CONSTRAINT `posttags_ibfk_2` FOREIGN KEY (`TagID`) REFERENCES `tag` (`ID`);
 
 --
--- Constraints for table `products`
+-- Các ràng buộc cho bảng `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `productcategories` (`ID`);
 
 --
--- Constraints for table `producttags`
+-- Các ràng buộc cho bảng `producttags`
 --
 ALTER TABLE `producttags`
   ADD CONSTRAINT `producttags_ibfk_1` FOREIGN KEY (`TagID`) REFERENCES `tag` (`ID`),
