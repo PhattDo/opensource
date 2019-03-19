@@ -24,13 +24,34 @@
         }
 
         if(empty($error)){
-            $id_update = $db->update("productcategories",$data,array("id"=>$id));
-            if($id_update > 0){
-                $_SESSION['success'] = "Cập Nhật Thành Công";
-                redirectAdmin("category");
+
+            if($EditCategory['Name'] != $data['name']){
+                $isset = $db->fetchOne("productcategories"," name = '".$data['name']."' ");
+                if(count($isset)>0){
+                    $_SESSION['error'] = "Tên Danh Mục Đã Tồn Tại!";
+                }  
+                else{
+                    $id_update = $db->update("productcategories",$data,array("id"=>$id));
+                    if($id_update > 0){
+                        $_SESSION['success'] = "Cập Nhật Thành Công";
+                        redirectAdmin("category");
+                    }
+                    else{
+                        $_SESSION['error'] = "Dữ Liệu Không Thay Đổi"; 
+                        redirectAdmin("category");
+                    }
+                }
             }
             else{
-                $_SESSION['error'] = "Dữ Liệu Không Thay Đổi"; 
+                $id_update = $db->update("productcategories",$data,array("id"=>$id));
+                if($id_update > 0){
+                    $_SESSION['success'] = "Cập Nhật Thành Công";
+                    redirectAdmin("category");
+                }
+                else{
+                    $_SESSION['error'] = "Dữ Liệu Không Thay Đổi"; 
+                    redirectAdmin("category");
+                }
             }
         }
     }
@@ -40,15 +61,19 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="../../index.php">Trang Chủ</a>
+            <a href="<?php echo base_url()?>/admin/index.php">Trang Chủ</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="../../Modules/Category/index.php">Các Danh Mục</a>
+            <a href="<?php echo base_url()?>/admin/modules/Category/index.php">Các Danh Mục</a>
         </li>
         <li class="breadcrumb-item active">Sửa Danh Mục</li>
     </ol>
     <!-- Page Content -->
     <h3>Sửa Danh Mục</h3>
+
+    <!--Notification-->
+    <div class="clearfix"></div>
+    <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
     
 
     <div class="row">

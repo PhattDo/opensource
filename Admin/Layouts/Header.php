@@ -22,14 +22,7 @@
          </button>
          <!-- Navbar Search -->
          <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
-               <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-               <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search"></i>
-                  </button>
-               </div>
-            </div>
+
          </form>
          <!-- Navbar -->
          <ul class="navbar-nav ml-auto ml-md-0">
@@ -89,14 +82,26 @@
 
             <li class="nav-item">
                <a class="nav-link" href="charts.html">
-               <i class="fas fa-fw fa-chart-area"></i>
-               <span>Charts</span></a>
+               <i class="fas fa-fw fa-archive"></i>
+               <span>Các Sản Phẩm</span></a>
+            </li>
+
+            <li class="nav-item">
+               <a class="nav-link" href="charts.html">
+               <i class="fas fa-fw fa-user"></i>
+               <span>Thành Viên</span></a>
             </li>
             
             <li class="nav-item">
                <a class="nav-link" href="tables.html">
-               <i class="fas fa-fw fa-table"></i>
-               <span>Tables</span></a>
+               <i class="fas fa-fw fa-clipboard-check"></i>
+               <span>Quản lý đơn hàng</span></a>
+            </li>
+
+            <li class="nav-item">
+               <a class="nav-link" href="charts.html">
+               <i class="fas fa-fw fa-user-secret"></i>
+               <span>Admin</span></a>
             </li>
          </ul>
          <div id="content-wrapper">

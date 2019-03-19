@@ -15,13 +15,19 @@
         }
 
         if(empty($error)){
-            $id_insert = $db->insert("productcategories",$data);
-            if($id_insert > 0){
-                $_SESSION['success'] = "Thêm Mới Thành Công";
-                redirectAdmin("category");
+            $isset = $db->fetchOne("productcategories"," name = '".$data['name']."' ");
+            if(count($isset)>0){
+                $_SESSION['error'] = "Tên Danh Mục Đã Tồn Tại!";
             }
             else{
-                $_SESSION['error'] = "Thêm Mới Thất Bại"; 
+                $id_insert = $db->insert("productcategories",$data);
+                if($id_insert > 0){
+                    $_SESSION['success'] = "Thêm Mới Thành Công";
+                    redirectAdmin("category");
+                }
+                else{
+                    $_SESSION['error'] = "Thêm Mới Thất Bại"; 
+                }
             }
         }
     }
@@ -31,16 +37,20 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="../../index.php">Trang Chủ</a>
+            <a href="<?php echo base_url()?>/admin">Trang Chủ</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="../../Modules/Category/index.php">Các Danh Mục</a>
+            <a href="<?php echo base_url()?>/admin/modules/Category/index.php">Các Danh Mục</a>
         </li>
         <li class="breadcrumb-item active">Thêm Mới Danh Mục</li>
     </ol>
     <!-- Page Content -->
     <h3>Thêm Mới Danh Mục</h3>
     
+    <!--Notification-->
+    <div class="clearfix"></div>
+    <?php require_once __DIR__. "/../../../partials/notification.php"; ?>
+
 
     <div class="row">
         <div class="col-md-12">
