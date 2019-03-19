@@ -1,7 +1,5 @@
 <?php
     require_once __DIR__. "/Autoload/autoload.php";
-    $category = $db->fetchAll("productcategories");
-    var_dump($category);
 ?>
 
 <?php require_once __DIR__. "/Layouts/Header.php"; ?>

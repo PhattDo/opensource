@@ -4,7 +4,8 @@
     if($_SERVER["REQUEST_METHOD"]=="POST"){
 
         $data = [
-            "name" => postInput('name')
+            "name" => postInput('name'),
+            "alias" => to_slug(postInput("name"))
         ];
 
         $error = [];
@@ -15,12 +16,18 @@
 
         if(empty($error)){
             $id_insert = $db->insert("productcategories",$data);
-            
+            if($id_insert > 0){
+                $_SESSION['success'] = "Thêm Mới Thành Công";
+                redirectAdmin("category");
+            }
+            else{
+                $_SESSION['error'] = "Thêm Mới Thất Bại"; 
+            }
         }
     }
 ?>
 
-<?php require_once __DIR__. "/../..//Layouts/Header.php"; ?>
+<?php require_once __DIR__. "/../../Layouts/Header.php"; ?>
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">

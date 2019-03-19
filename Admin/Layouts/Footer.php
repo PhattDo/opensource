@@ -35,11 +35,11 @@
          </div>
       </div>
       <!-- Bootstrap core JavaScript-->
-      <script src="/MNM/opensource/Public/Admin/vendor/jquery/jquery.min.js"></script>
-      <script src="/MNM/opensource/Public/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="<?php echo base_url()?>/Public/Admin/vendor/jquery/jquery.min.js"></script>
+      <script src="<?php echo base_url()?>/Public/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <!-- Core plugin JavaScript-->
-      <script src="/MNM/opensource/Public/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+      <script src="<?php echo base_url()?>/Public/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
       <!-- Custom scripts for all pages-->
-      <script src="/MNM/opensource/Public/Admin/js/sb-admin.min.js"></script>
+      <script src="<?php echo base_url()?>/Public/Admin/js/sb-admin.min.js"></script>
    </body>
 </html>
