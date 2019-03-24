@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 18, 2019 lúc 06:33 PM
+-- Thời gian đã tạo: Th3 24, 2019 lúc 09:28 AM
 -- Phiên bản máy phục vụ: 10.1.37-MariaDB
 -- Phiên bản PHP: 7.0.33
 
@@ -21,6 +21,24 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `verashop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) COLLATE utf32_vietnamese_ci NOT NULL,
+  `address` varchar(100) COLLATE utf32_vietnamese_ci NOT NULL,
+  `email` varchar(100) COLLATE utf32_vietnamese_ci NOT NULL,
+  `password` varchar(50) COLLATE utf32_vietnamese_ci NOT NULL,
+  `phone` char(15) COLLATE utf32_vietnamese_ci NOT NULL,
+  `avatar` varchar(100) COLLATE utf32_vietnamese_ci NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_vietnamese_ci;
 
 -- --------------------------------------------------------
 
@@ -193,12 +211,13 @@ CREATE TABLE `productcategories` (
 --
 
 INSERT INTO `productcategories` (`ID`, `Name`, `Description`, `ParentID`, `DisplayOrder`, `HomeFlag`, `CreatedDate`, `CreatedBy`, `UpdateDate`, `UpdatedBy`, `MetaKeyWord`, `MetaDescription`, `Status`, `Image`, `Alias`) VALUES
-(1, 'Dell', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
-(2, 'HP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
-(3, 'Samsung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
-(4, 'Iphone', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
-(5, 'Xiaomi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL),
-(6, 'Oppo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, NULL);
+(1, 'Dell', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'dell'),
+(2, 'HP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'hp'),
+(3, 'Samsung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'samsung'),
+(4, 'Iphone', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'iphone'),
+(5, 'Xiaomi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'xiaomi'),
+(6, 'Oppo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'oppo'),
+(7, 'Lenovo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'lenovo');
 
 -- --------------------------------------------------------
 
@@ -256,9 +275,34 @@ CREATE TABLE `tag` (
   `Type` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) COLLATE utf32_vietnamese_ci NOT NULL,
+  `email` varchar(100) COLLATE utf32_vietnamese_ci NOT NULL,
+  `phone` char(15) COLLATE utf32_vietnamese_ci NOT NULL,
+  `address` varchar(100) COLLATE utf32_vietnamese_ci NOT NULL,
+  `password` varchar(50) COLLATE utf32_vietnamese_ci NOT NULL,
+  `avatar` varchar(100) COLLATE utf32_vietnamese_ci NOT NULL,
+  `token` varchar(50) COLLATE utf32_vietnamese_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_vietnamese_ci;
+
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `menu`
@@ -339,8 +383,20 @@ ALTER TABLE `tag`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
+
+--
+-- AUTO_INCREMENT cho bảng `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `menu`
@@ -382,13 +438,19 @@ ALTER TABLE `postcategories`
 -- AUTO_INCREMENT cho bảng `productcategories`
 --
 ALTER TABLE `productcategories`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
