@@ -1,9 +1,9 @@
 
 
-<?php 
+<?php
 
     /**
-    * 
+    *
     */
     class Database
     {
@@ -15,16 +15,16 @@
 
         public function __construct()
         {
-            $this->link = mysqli_connect("localhost","root","","verashop") or die ();
+            $this->link = mysqli_connect("localhost","root","","shopvera") or die ();
             mysqli_set_charset($this->link,"utf8");
         }
 
-        
+
 
         /**
-         * [insert description] hàm insert 
+         * [insert description] hàm insert
          * @param  $table
-         * @param  array  $data  
+         * @param  array  $data
          * @return integer
          */
         public function insert($table, array $data)
@@ -114,9 +114,9 @@
         }
 
         /**
-         * delete array 
+         * delete array
          */
-        
+
         public function deletewhere($table,$data = array())
         {
             foreach ($data as $id)
@@ -140,7 +140,7 @@
                 }
             }
             return $data;
-        } 
+        }
 
         public function fetchID($table , $id )
         {
@@ -166,7 +166,7 @@
             return mysqli_affected_rows($this->link);
         }
 
-        
+
 
          public function fetchAll($table)
         {
@@ -183,10 +183,10 @@
             return $data;
         }
 
-    
+
         public  function fetchJones($table,$sql,$total = 1,$page,$row ,$pagi = true )
         {
-            
+
             $data = [];
 
             if ($pagi == true )
@@ -195,15 +195,15 @@
                 $start = ($page - 1 ) * $row ;
                 $sql .= " LIMIT $start,$row ";
                 $data = [ "page" => $sotrang];
-              
-               
+
+
                 $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
             }
             else
             {
                 $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
             }
-            
+
             if( $result)
             {
                 while ($num = mysqli_fetch_assoc($result))
@@ -211,12 +211,12 @@
                     $data[] = $num;
                 }
             }
-            
+
             return $data;
         }
          public  function fetchJone($table,$sql ,$page = 0,$row ,$pagi = false )
         {
-            
+
             $data = [];
             // _debug($sql);die;
             if ($pagi == true )
@@ -226,14 +226,14 @@
                 $start = ($page - 1 ) * $row ;
                 $sql .= " LIMIT $start,$row";
                 $data = [ "page" => $sotrang];
-               
+
                 $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
             }
             else
             {
                 $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
             }
-            
+
             if( $result)
             {
                 while ($num = mysqli_fetch_assoc($result))
@@ -274,5 +274,5 @@
             return $tien;
         }
     }
-   
+
 ?>
