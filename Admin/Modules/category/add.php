@@ -1,19 +1,14 @@
 <?php
     require_once __DIR__. "/../../Autoload/autoload.php";
-
     if($_SERVER["REQUEST_METHOD"]=="POST"){
-
         $data = [
             "name" => postInput('name'),
             "alias" => to_slug(postInput("name"))
         ];
-
         $error = [];
-
         if(postInput('name') == ''){
             $error['name'] = "Mời bạn nhập đầy đủ tên danh mục.";
         }
-
         if(empty($error)){
             $isset = $db->fetchOne("productcategories"," name = '".$data['name']."' ");
             if(count($isset)>0){
@@ -46,6 +41,7 @@
     </ol>
     <!-- Page Content -->
     <h3>Thêm Mới Danh Mục</h3>
+    <hr/>
     
     <!--Notification-->
     <div class="clearfix"></div>
@@ -54,11 +50,12 @@
 
     <div class="row">
         <div class="col-md-12">
-            <form class="form-inline" action="" method="POST">
-                <div class="form-group">
-                    <label class="col-sm-5 control-label">Tên danh mục</label>
-                    <div class="col-sm-7">
-                        <input type="text" style="" class="form-control" placeholder="Nhập tên danh mục mới" name="name">
+            <form class="" action="" method="POST">
+                <!--Name-->
+                <div class="row">
+                    <label class="col-sm-2 control-label">Tên danh mục: </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Nhập tên admin" name="name">
 
 
                         <?php if(isset($error['name'])):?>
@@ -66,16 +63,20 @@
                         <?php endif ?>
 
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <div class="col-sm-offset-5 col-sm-7">
-                      <button type="submit" class="btn btn-success"><strong>Lưu</strong></button>
+                    <div class="offset-col-sm-2">
+
                     </div>
+
+                </div>
+
+                <br/>
+                <br/>
+                
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success"><strong>Lưu</strong></button>
                 </div>
             </form>
         </div>
     </div>
 
 <?php require_once __DIR__. "/../../Layouts/Footer.php"; ?>
-

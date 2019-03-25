@@ -3,22 +3,22 @@
 
     $id = intval(getInput('id'));
     
-    $DelCategory = $db->fetchID("productcategories",$id);
-    if(empty($DelCategory)){
+    $DelAdmin = $db->fetchID("admin",$id);
+    if(empty($DelAdmin)){
         $_SESSION['error'] = "Dữ liệu không tồn tại";
 
         redirectAdmin("category");
     }
 
-    $num = $db->delete("productcategories",$id); 
+    $num = $db->delete("admin",$id); 
 
     if($num >0){
         $_SESSION['success'] = "Xóa Thành Công";
-        redirectAdmin("category");
+        redirectAdmin("admin");
     }
     else{
         $_SESSION['error'] = "Xóa Thất Bại"; 
-        redirectAdmin("category");
+        redirectAdmin("admin");
     }
 ?>
 

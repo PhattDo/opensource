@@ -101,7 +101,7 @@
     function base_url()
     {
         // return $url  = "http://codedoan.com/"; 
-        return $url  = "http://localhost:7777/MNM/opensource"; 
+        return $url  = "http://localhost:7777/opensource"; 
     }
 
 
@@ -122,7 +122,7 @@
 
     function uploads()
     {
-        return base_url() . "public/uploads/";
+        return base_url() . "/Public/uploads/";
     }
     
      if ( ! function_exists('redirectStyle'))
