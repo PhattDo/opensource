@@ -83,8 +83,23 @@
     }
     function base_url()
     {
+<<<<<<< HEAD
         // return $url  = "http://codedoan.com/"; 
         return $url  = "http://localhost:7777/opensource"; 
+=======
+<<<<<<< HEAD
+        // return $url  = "http://codedoan.com/";
+        return $url  = "http://localhost:2701/MNM/opensource";
+=======
+<<<<<<< HEAD
+        // return $url  = "http://codedoan.com/"; 
+        return $url  = "http://localhost:7777/opensource"; 
+=======
+        // return $url  = "http://codedoan.com/";
+        return $url  = "http://localhost:8989/opensource";
+>>>>>>> b918041e12bf25adb64628063637b2b6730869f7
+>>>>>>> 62040bbfdb1c2de7ca464ffb93043e89af045446
+>>>>>>> 2a77c2b25b0161b8337968b05b749fd824c727b4
     }
     function public_admin()
     {
