@@ -99,7 +99,7 @@
             </li>
 
             <li class="nav-item">
-               <a class="nav-link" href="charts.html">
+               <a class="nav-link" href="<?php echo modules("admin") ?>">
                <i class="fas fa-fw fa-user-secret"></i>
                <span>Admin</span></a>
             </li>
