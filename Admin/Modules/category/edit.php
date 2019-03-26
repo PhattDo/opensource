@@ -85,7 +85,7 @@
                 <div class="row">
                     <label class="col-sm-2 control-label">Tên danh mục: </label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Nhập tên admin" name="name" value="<?php echo $EditCategory['Name']?>">
+                        <input type="text" class="form-control" placeholder="Nhập tên danh mục" name="name" value="<?php echo $EditCategory['Name']?>">
 
 
                         <?php if(isset($error['name'])):?>

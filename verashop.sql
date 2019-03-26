@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 24, 2019 lúc 09:28 AM
+-- Thời gian đã tạo: Th3 26, 2019 lúc 11:31 AM
 -- Phiên bản máy phục vụ: 10.1.37-MariaDB
 -- Phiên bản PHP: 7.0.33
 
@@ -39,6 +39,14 @@ CREATE TABLE `admin` (
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `address`, `email`, `password`, `phone`, `avatar`, `create_at`, `update_at`) VALUES
+(14, 'Admin', 'admin', 'admin@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '0969356410', 'default.png', '2019-03-25 10:09:35', '0000-00-00 00:00:00'),
+(16, '1', '1', '1@1', 'c4ca4238a0b923820dcc509a6f75849b', '1', '', '2019-03-25 10:12:54', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -211,10 +219,6 @@ CREATE TABLE `productcategories` (
 --
 
 INSERT INTO `productcategories` (`ID`, `Name`, `Description`, `ParentID`, `DisplayOrder`, `HomeFlag`, `CreatedDate`, `CreatedBy`, `UpdateDate`, `UpdatedBy`, `MetaKeyWord`, `MetaDescription`, `Status`, `Image`, `Alias`) VALUES
-(1, 'Dell', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'dell'),
-(2, 'HP', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'hp'),
-(3, 'Samsung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'samsung'),
-(4, 'Iphone', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'iphone'),
 (5, 'Xiaomi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'xiaomi'),
 (6, 'Oppo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'oppo'),
 (7, 'Lenovo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, b'00', NULL, 'lenovo');
@@ -230,7 +234,7 @@ CREATE TABLE `products` (
   `Name` varchar(500) NOT NULL,
   `Alias` int(11) NOT NULL,
   `CategoryID` int(11) NOT NULL,
-  `Image` int(11) DEFAULT NULL,
+  `Image` varchar(50) DEFAULT NULL,
   `Price` decimal(18,2) NOT NULL,
   `PromotionPrice` decimal(18,2) DEFAULT NULL,
   `Warantary` varchar(5000) DEFAULT NULL,
@@ -251,6 +255,13 @@ CREATE TABLE `products` (
   `OriginalPrice` decimal(18,2) NOT NULL,
   `MoreImages` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `products`
+--
+
+INSERT INTO `products` (`ID`, `Name`, `Alias`, `CategoryID`, `Image`, `Price`, `PromotionPrice`, `Warantary`, `Description`, `Content`, `HomeFlag`, `HotFlag`, `ViewCount`, `CreatedDate`, `CreatedBy`, `UpdateDate`, `UpdateBy`, `MetaKeyword`, `MetaDescription`, `Status`, `Tags`, `Quantity`, `OriginalPrice`, `MoreImages`) VALUES
+(1, '1', 1, 5, '1', '1.00', '1.00', '1', '1', '1', b'0', b'0', 0, '0000-00-00 00:00:00', '', NULL, NULL, NULL, NULL, b'0', NULL, 0, '0.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -396,7 +407,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `menu`
@@ -444,7 +455,7 @@ ALTER TABLE `productcategories`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `users`

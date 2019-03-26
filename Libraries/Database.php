@@ -15,7 +15,7 @@
 
         public function __construct()
         {
-            $this->link = mysqli_connect("localhost","root","","shopvera") or die ();
+            $this->link = mysqli_connect("localhost","root","","verashop") or die ();
             mysqli_set_charset($this->link,"utf8");
         }
 
