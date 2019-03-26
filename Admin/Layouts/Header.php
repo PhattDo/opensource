@@ -8,11 +8,11 @@
       <meta name="author" content="">
       <title>Quản Lý Vera</title>
       <!-- Custom fonts for this template-->
-      <link href="<?php echo base_url()?>/Public/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+      <link href="<?php echo base_url()?>/Public/Frontend/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
       <!-- Page level plugin CSS-->
-      <link href="<?php echo base_url()?>/Public/Admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+      <link href="<?php echo base_url()?>/Public/Frontend/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
       <!-- Custom styles for this template-->
-      <link href="<?php echo base_url()?>/Public/Admin/css/sb-admin.css" rel="stylesheet">
+      <link href="<?php echo base_url()?>/Public/Frontend/css/sb-admin.css" rel="stylesheet">
    </head>
    <body id="page-top">
       <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -91,7 +91,7 @@
                <i class="fas fa-fw fa-user"></i>
                <span>Thành Viên</span></a>
             </li>
-            
+
             <li class="nav-item">
                <a class="nav-link" href="tables.html">
                <i class="fas fa-fw fa-clipboard-check"></i>

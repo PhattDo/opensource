@@ -15,7 +15,7 @@
 
         public function __construct()
         {
-            $this->link = mysqli_connect("localhost","root","","shopvera") or die ();
+            $this->link = mysqli_connect("localhost","root","","verashop") or die ();
             mysqli_set_charset($this->link,"utf8");
         }
 
@@ -84,12 +84,14 @@
 
             return mysqli_affected_rows($this->link);
         }
+
         public function updateview($sql)
         {
             $result = mysqli_query($this->link,$sql)  or die ("Lỗi update view " .mysqli_error($this->link));
             return mysqli_affected_rows($this->link);
 
         }
+
         public function countTable($table)
         {
             $sql = "SELECT id FROM  {$table}";
@@ -149,6 +151,14 @@
             return mysqli_fetch_assoc($result);
         }
 
+
+        public function fetchCatgory($table , $cateID )
+        {
+            $sql = "SELECT * FROM {$table} WHERE id = $cateID ";
+            $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
+            return mysqli_fetch_assoc($result);
+        }
+
         public function fetchOne($table , $query)
         {
             $sql  = "SELECT * FROM {$table} WHERE ";
@@ -183,6 +193,20 @@
             return $data;
         }
 
+        public function fetchMax($table,$rows)
+       {
+           $sql = "SELECT * FROM {$table} WHERE {$rows} = (SELECT MAX({$rows}) FROM {$table})" ;
+           $result = mysqli_query($this->link,$sql) or die("Lỗi Truy Vấn fetchMax" .mysqli_error($this->link));
+           $data = [];
+           if( $result)
+           {
+               while ($num = mysqli_fetch_assoc($result))
+               {
+                   $data[] = $num;
+               }
+           }
+           return $data;
+       }
 
         public  function fetchJones($table,$sql,$total = 1,$page,$row ,$pagi = true )
         {
@@ -214,6 +238,7 @@
 
             return $data;
         }
+
          public  function fetchJone($table,$sql ,$page = 0,$row ,$pagi = false )
         {
 
@@ -273,6 +298,9 @@
             $tien = mysqli_fetch_assoc($result);
             return $tien;
         }
+
+
+
     }
 
 ?>

@@ -116,6 +116,26 @@
   </div><!-- /.modal-dialog -->
 </div>
 
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="<?php echo base_url()?>/Public/Frontend/js/bootstrap.js"></script>
+<!-- SmartMenus jQuery plugin -->
+<script type="text/javascript" src="<?php echo base_url()?>/Public/Frontend/js/jquery.smartmenus.js"></script>
+<!-- SmartMenus jQuery Bootstrap Addon -->
+<script type="text/javascript" src="<?php echo base_url()?>/Public/Frontend/js/jquery.smartmenus.bootstrap.js"></script>
+<!-- To Slider JS -->
+<script src="<?php echo base_url()?>/Public/Frontend/js/sequence.js"></script>
+<script src="<?php echo base_url()?>/Public/Frontend/js/sequence-theme.modern-slide-in.js"></script>
+<!-- Product view slider -->
+<script type="text/javascript" src="<?php echo base_url()?>/Public/Frontend/js/jquery.simpleGallery.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>/Public/Frontend/js/jquery.simpleLens.js"></script>
+<!-- slick slider -->
+<script type="text/javascript" src="<?php echo base_url()?>/Public/Frontend/js/slick.js"></script>
+<!-- Price picker slider -->
+<script type="text/javascript" src="<?php echo base_url()?>/Public/Frontend/js/nouislider.js"></script>
+<!-- Custom js -->
+<script src="<?php echo base_url()?>/Public/Frontend/js/custom.js"></script>
 
 </body>
 </html>
