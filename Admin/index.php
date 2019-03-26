@@ -13,4 +13,3 @@
     <!-- Page Content -->
     <h1>Chào Mừng Đến Với Trang Quản Trị Admin</h1>
 <?php require_once __DIR__. "/Layouts/Footer.php"; ?>
-

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     /**
     * debug
@@ -80,17 +80,17 @@
     /**
      * get input
      */
-    
+
     function  getInput($string)
     {
         return isset($_GET[$string]) ? $_GET[$string] : '';
     }
 
-    
+
     /**
      * post Input
      */
-    
+
     function  postInput($string)
     {
         return isset($_POST[$string]) ? $_POST[$string] : '';
@@ -100,8 +100,8 @@
 
     function base_url()
     {
-        // return $url  = "http://codedoan.com/"; 
-        return $url  = "http://localhost:7777/MNM/opensource"; 
+        // return $url  = "http://codedoan.com/";
+        return $url  = "http://localhost:2701/MNM/opensource";
     }
 
 
@@ -122,9 +122,9 @@
 
     function uploads()
     {
-        return base_url() . "public/uploads/";
+        return base_url() . "/Public/uploads/";
     }
-    
+
      if ( ! function_exists('redirectStyle'))
     {
         function redirectStyle($url = "")
@@ -136,7 +136,7 @@
 
 
     /**
-     *  redirect về các trang 
+     *  redirect về các trang
      */
     if ( ! function_exists('redirectAdmin'))
     {
@@ -149,7 +149,7 @@
 
 
     /**
-     *  redirect về các trang 
+     *  redirect về các trang
      */
     if ( ! function_exists('redirect'))
     {

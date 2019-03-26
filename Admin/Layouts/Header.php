@@ -80,8 +80,8 @@
                </a>
             </li>
 
-            <li class="nav-item">
-               <a class="nav-link" href="charts.html">
+            <li class="nav-item" <?php echo isset($open) && $open == 'product' ? 'active' : ''?>>
+               <a class="nav-link" href="<?php echo modules("product") ?>">
                <i class="fas fa-fw fa-archive"></i>
                <span>Các Sản Phẩm</span></a>
             </li>
@@ -91,7 +91,7 @@
                <i class="fas fa-fw fa-user"></i>
                <span>Thành Viên</span></a>
             </li>
-            
+
             <li class="nav-item">
                <a class="nav-link" href="tables.html">
                <i class="fas fa-fw fa-clipboard-check"></i>
